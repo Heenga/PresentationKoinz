@@ -9,6 +9,7 @@
   const progress = document.getElementById('progress');
   const count = document.getElementById('count');
   const pad = (n) => String(n).padStart(2, '0');
+  const locale = document.documentElement.lang || 'pt-BR';
   let current = 0;
 
   // ---------- Rodapé (marca · seção · número) ----------
@@ -59,7 +60,7 @@
       el.textContent = '0';
       function tick(now) {
         const t = Math.min(1, (now - start) / dur);
-        el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3))).toLocaleString('pt-BR');
+        el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3))).toLocaleString(locale);
         if (t < 1) requestAnimationFrame(tick);
       }
       setTimeout(() => requestAnimationFrame(tick), 350);
@@ -203,7 +204,12 @@
   // Na impressão, tudo aparece no estado final.
   window.addEventListener('beforeprint', () => {
     if (globe) renderGlobe();
-    deck.querySelectorAll('.count').forEach((el) => { el.textContent = Number(el.dataset.to).toLocaleString('pt-BR'); });
+    deck.querySelectorAll('.count').forEach((el) => { el.textContent = Number(el.dataset.to).toLocaleString(locale); });
+  });
+
+  // Trocar de idioma mantém o slide atual.
+  document.querySelectorAll('.controls__langs a[hreflang]').forEach((a) => {
+    a.addEventListener('click', () => { a.href = a.getAttribute('href').split('#')[0] + '#' + (current + 1); });
   });
 
   const fromHash = parseInt(location.hash.slice(1), 10);
