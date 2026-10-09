@@ -11,7 +11,7 @@ Design: linguagem da página /companies — Inter fina nos títulos, DM Sans no 
 - `PT` / `EN` / `ES` na barra de controles: troca de idioma no mesmo slide; o ícone do globo volta ao menu
 - `F`: tela cheia · `G`: visão geral de todos os slides (clique em um para abrir) · `Esc`: sair da visão geral
 - `Home` / `End`: primeiro / último slide
-- O número do slide fica na URL (`index.html#7` abre direto no slide 7)
+- O número do slide fica na URL (`pt.html#7` ou `/en#7` abre direto no slide 7)
 
 ## Exportar em PDF
 Chrome → Imprimir (Cmd+P) → Salvar como PDF, com "Gráficos de plano de fundo" ligado e margens "Nenhuma". Sai um slide por página, com as animações no estado final.
