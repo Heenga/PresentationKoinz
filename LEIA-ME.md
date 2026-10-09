@@ -8,6 +8,7 @@ Design: linguagem da página /companies — Inter fina nos títulos, DM Sans no 
 ## Comandos
 - `→` / espaço / clique na metade direita: próximo slide
 - `←` / clique na metade esquerda: slide anterior
+- `PT` / `EN` / `ES` na barra de controles: troca de idioma no mesmo slide; o ícone do globo volta ao menu
 - `F`: tela cheia · `G`: visão geral de todos os slides (clique em um para abrir) · `Esc`: sair da visão geral
 - `Home` / `End`: primeiro / último slide
 - O número do slide fica na URL (`index.html#7` abre direto no slide 7)
@@ -19,7 +20,7 @@ Chrome → Imprimir (Cmd+P) → Salvar como PDF, com "Gráficos de plano de fund
 - `index.html`: menu de idioma (atalhos `1` / `2` / `3`)
 - `pt.html`, `en.html`, `es.html`: a apresentação em cada idioma, com os mesmos slides. Ao mudar um texto, mude nos três arquivos
 - `vercel.json`: `cleanUrls`, para os links ficarem `/pt`, `/en` e `/es`
-- Cada versão: (cada um é um `<section class="slide">`, com comentário numerado)
+- Em cada versão, os 18 slides são `<section class="slide">`, cada um com um comentário numerado
 - `styles.css`: cores e fontes no topo (`:root`), depois um bloco por slide
 - `app.js`: navegação, escala para qualquer tela, globo de cidades, palavras da visão, números subindo
 - `assets/ikitech.png`: logo da IKI Tech (recortado da apresentação, já que não estava na pasta)
