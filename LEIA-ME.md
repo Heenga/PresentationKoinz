@@ -1,6 +1,6 @@
 # Apresentação Koinz Capital para Empresas (HTML/CSS)
 
-Abra `index.html` no navegador (Chrome recomendado). As imagens ficam em `public/assets`, dentro desta pasta.
+Abra `index.html` no navegador (Chrome recomendado). As imagens ficam em `assets`, dentro desta pasta.
 
 Conteúdo: segue a apresentação Koinz Capital (13 slides), complementada com elementos da página /companies (visão, globo de cidades, logos das empresas e escolas dos membros, depoimentos).
 Design: linguagem da página /companies — Inter fina nos títulos, DM Sans no texto, papel frio + navy, azul #2e7dff, painéis com divisórias finas, constelação, globo girando e tickers de logos.
