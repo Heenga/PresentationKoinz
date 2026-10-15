@@ -19,6 +19,7 @@ Chrome → Imprimir (Cmd+P) → Salvar como PDF, com "Gráficos de plano de fund
 ## Arquivos
 - `index.html`: menu de idioma (atalhos `1` / `2` / `3`)
 - `pt.html`, `en.html`, `es.html`: a apresentação em cada idioma, com os mesmos slides. Ao mudar um texto, mude nos três arquivos
+- `proposta.html`: versão em português com a proposta comercial confidencial (slides 16 a 20: os dois modelos, mensalidade variável, taxa de sucesso, condições e proposta alternativa). Não aparece no menu de idiomas e tem `noindex`; abra direto por `/proposta`
 - `vercel.json`: `cleanUrls`, para os links ficarem `/pt`, `/en` e `/es`
 - Em cada versão, os 18 slides são `<section class="slide">`, cada um com um comentário numerado
 - `styles.css`: cores e fontes no topo (`:root`), depois um bloco por slide
