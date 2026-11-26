@@ -171,7 +171,7 @@
       if (wrap) { current = wraps.indexOf(wrap); toggleOverview(false); }
       return;
     }
-    if (e.target.closest('a, button')) return;
+    if (e.target.closest('a, button, .no-advance')) return;
     go(current + (e.clientX > window.innerWidth / 2 ? 1 : -1));
   });
 
@@ -211,6 +211,49 @@
   document.querySelectorAll('.controls__langs a[hreflang]').forEach((a) => {
     a.addEventListener('click', () => { a.href = a.getAttribute('href').split('#')[0] + '#' + (current + 1); });
   });
+
+
+  // ---------- Conselheiros por setor (slide interativo) ----------
+  (function () {
+    const src = document.getElementById('setores-data');
+    if (!src) return;
+    const data = JSON.parse(src.textContent);
+    const root = src.closest('.slide');
+    const nav = root.querySelector('.sx-nav');
+    const grid = root.querySelector('.sx-grid');
+    const scroll = root.querySelector('.sx-scroll');
+    const panel = root.querySelector('.sx-panel');
+    const title = root.querySelector('.sx-title');
+    const countEl = root.querySelector('.sx-count');
+    const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const initials = (n) => n.split(' ').map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+    data.forEach((s, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'sx-btn';
+      b.innerHTML = '<span>' + esc(s.k) + '</span><b>' + s.c.length + '</b>';
+      b.addEventListener('click', () => show(i));
+      nav.appendChild(b);
+    });
+    function updateMore() { panel.classList.toggle('has-more', scroll.scrollHeight - scroll.scrollTop - scroll.clientHeight > 8); }
+    function show(i) {
+      const s = data[i];
+      nav.querySelectorAll('.sx-btn').forEach((b, j) => b.classList.toggle('is-on', j === i));
+      title.textContent = s.t;
+      countEl.textContent = s.c.length + (s.c.length === 1 ? ' conselheiro' : ' conselheiros');
+      grid.innerHTML = s.c.map((p, k) =>
+        (p.l ? '<a class="sx-card" href="' + esc(p.l) + '" target="_blank" rel="noopener"' : '<div class="sx-card"') +
+        ' role="listitem" style="--i:' + k + '" title="' + esc(p.f + ' — ' + p.r + (p.l ? ' · abrir LinkedIn' : '')) + '">' +
+        (p.p ? '<img class="sx-av" src="assets/conselheiros/' + p.p + '.jpg" alt="">' : '<span class="sx-av">' + initials(p.n) + '</span>') +
+        '<div><strong>' + esc(p.n) + '</strong><span class="sx-role">' + esc(p.r) + '</span></div>' +
+        (p.l ? '<span class="sx-in" aria-hidden="true">in</span></a>' : '</div>')).join('');
+      scroll.scrollTop = 0;
+      requestAnimationFrame(updateMore);
+    }
+    scroll.addEventListener('scroll', updateMore, { passive: true });
+    window.addEventListener('resize', updateMore);
+    show(0);
+  })();
 
   const fromHash = parseInt(location.hash.slice(1), 10);
   fit();
