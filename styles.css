@@ -552,3 +552,33 @@ body.is-overview .jt-q { opacity: 1; transform: rotate(45deg); transition: none;
 .jt-sum > div { display: flex; align-items: baseline; gap: 14px; padding: 20px 28px; background: var(--navy-2); }
 .jt-sum strong { font: 300 44px/1 var(--display); letter-spacing: -0.03em; color: var(--brand); }
 .jt-sum span { font: 400 18px/1.3 var(--body); color: var(--fg-2); }
+
+/* =====================================================================
+   14 · REMUNERAÇÃO (3% equity · 5% captação · tabela de engajamento)
+   ===================================================================== */
+.comp2 { display: grid; grid-template-columns: 620px 1fr; gap: 28px; flex: 1; min-height: 0; }
+.comp2__side { grid-template-rows: 1fr 1fr; }
+.comp2__side .cell { padding: 32px 40px; gap: 18px; justify-content: center; }
+.comp2__row { display: flex; align-items: center; gap: 26px; }
+.comp2__row h3 { margin: 0 0 8px; }
+.comp2__big { flex: none; font: 300 104px/0.9 var(--display); letter-spacing: -0.05em; color: var(--brand); }
+.comp2__big span { font-size: 56px; margin-left: 4px; }
+.comp2__side h3 { font-size: 36px; }
+.comp2__side .sub { font: 600 19px/1.3 var(--body); color: var(--brand); }
+.comp2__side p { margin: 0; padding-top: 18px; border-top: 1px solid var(--line-l); font-size: 19px; line-height: 1.5; }
+.comp2__table .cell { padding: 36px 44px 30px; gap: 0; height: 100%; }
+.ef-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 22px; }
+.ef-head h3 { font-size: 40px; margin-bottom: 8px; }
+.ef-head .sub { font: 600 19px/1.3 var(--body); color: var(--brand); }
+.ef-cols { display: flex; justify-content: space-between; padding: 0 0 10px; border-bottom: 1px solid var(--line-l); font: 500 14px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.ef { list-style: none; margin: 0; padding: 0; flex: 1; display: grid; grid-auto-rows: 1fr; }
+.ef li { display: grid; grid-template-columns: 260px 1fr 170px; align-items: center; gap: 24px; border-bottom: 1px solid var(--line-l); }
+.ef-range { font: 400 19px/1.2 var(--body); color: var(--ink-2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ef-bar { height: 10px; border-radius: 999px; background: rgba(46, 125, 255, 0.08); overflow: hidden; }
+.ef-bar i { display: block; height: 100%; width: var(--w); border-radius: 999px; background: linear-gradient(90deg, #8db7ff, var(--brand)); transform-origin: left; transform: scaleX(0); transition: transform 900ms var(--ease); transition-delay: calc(500ms + var(--i) * 90ms); }
+.is-active .ef-bar i { transform: scaleX(1); }
+.ef-fee { text-align: right; font: 500 24px/1 var(--display); letter-spacing: -0.02em; color: var(--ink); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ef-fee small { font: 400 15px/1 var(--body); color: var(--ink-3); margin-left: 3px; letter-spacing: 0; }
+.ef-note { margin: 16px 0 0 !important; font: 400 17px/1.4 var(--body) !important; color: var(--ink-3) !important; }
+body.is-overview .ef-bar i { transform: none; transition: none; }
+@media print { .ef-bar i { transform: none !important; transition: none !important; } }
